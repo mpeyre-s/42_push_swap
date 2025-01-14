@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/13 15:50:40 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/14 13:08:08 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
+void	print_stacks(t_stack **stack_a, t_stack **stack_b);
 void	fill_stack(t_stack **stack, int value);
-void	print_stack(t_stack *stack);
 
 #endif

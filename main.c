@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/14 12:50:09 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/14 13:04:19 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ int	init_stack(t_stack **stack_a, size_t ac, char **av)
 	return (0);
 }
 
+int	sort_radix(t_stack **stack_a, t_stack **stack_b)
+{
+	print_stacks(stack_a, stack_b);
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -45,9 +51,6 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (init_stack(&stack_a, ac, av))
 		return (1);
-	ft_printf("Stack A\n");
-	print_stack(stack_a);
-	ft_printf("\nStack B\n");
-	print_stack(stack_b);
+	sort_radix(&stack_a, &stack_b);
 	return (0);
 }
