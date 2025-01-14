@@ -1,3 +1,5 @@
+.SILENT:
+
 # Compiler and flags
 CC      := gcc
 CFLAGS  := -Wall -Wextra -Werror
@@ -9,17 +11,18 @@ LIBFT   := ./.libft
 
 # Files
 SRCS    := main.c utils.c \
-           $(SRC_DIR)/swap.c
-        #    $(SRC_DIR)/rotate.c \
+           $(SRC_DIR)/swap.c \
+           $(SRC_DIR)/push.c
         #    $(SRC_DIR)/rrotate.c \
-        #    $(SRC_DIR)/push.c
+        #    $(SRC_DIR)/rotate.c
 
 OBJS    := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 NAME    := push_swap
 
 # Colors and emojis
 GREEN   := \033[0;32m
-YELLOW  := \033[0;33m
+YELLOW := \033[38;5;226m
+ORANGE  := \033[38;5;208m
 RESET   := \033[0m
 CHECK   := ✅
 
@@ -28,7 +31,7 @@ all: libft $(NAME)
 
 libft:
 	@$(MAKE) -C $(LIBFT)
-	@echo "$(GREEN)Libft compiled successfully! $(CHECK)$(RESET)"
+	@echo "$(YELLOW)Libft compiled successfully! $(CHECK)$(RESET)"
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT) -lft -o $(NAME)
@@ -46,11 +49,11 @@ $(OBJ_DIR):
 clean:
 	@$(MAKE) -C $(LIBFT) clean
 	@rm -rf $(OBJ_DIR)
-	@echo "$(GREEN)Object files cleaned! $(CHECK)$(RESET)"
+	@echo "$(ORANGE)Object files cleaned! $(CHECK)$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(GREEN)Executable $(NAME) removed! $(CHECK)$(RESET)"
+	@echo "$(ORANGE)Executable $(NAME) removed! $(CHECK)$(RESET)"
 
 re: fclean all
 

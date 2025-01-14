@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:56:46 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/14 13:29:20 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/14 15:47:58 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void	print_stacks(t_stack **stack_a, t_stack **stack_b)
 
 	current_a = *stack_a;
 	current_b = *stack_b;
-	ft_printf("Stack A\n");
+	ft_printf("Stack A : ");
 	while (current_a)
 	{
 		ft_printf("%d -> ", current_a->nb);
 		current_a = current_a->next;
 	}
 	ft_printf("NULL\n");
-	ft_printf("Stack B\n");
+	ft_printf("Stack B : ");
 	while (current_b)
 	{
 		ft_printf("%d -> ", current_b->nb);
