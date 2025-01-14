@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/14 16:10:54 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/14 16:56:19 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,15 @@ size_t	stack_size(t_stack *stack);
 void	fill_stack(t_stack **stack, int value);
 
 // swap.c
-int		swap(t_stack **stack);
+int		swap_a(t_stack **stack);
+int		swap_b(t_stack **stack);
 int		swap_swap(t_stack **stack_a, t_stack **stack_b);
 
 // push.c
-int		push(t_stack **src, t_stack **dest);
 int		push_a(t_stack **stack_a, t_stack **stack_b);
 int		push_b(t_stack **stack_a, t_stack **stack_b);
+
+// rotate.c
+int		rotate(t_stack **stack, char type);
+int		rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 #endif
