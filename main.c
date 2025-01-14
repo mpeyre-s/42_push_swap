@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/14 13:04:19 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/14 14:03:58 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	init_stack(t_stack **stack_a, size_t ac, char **av)
 
 int	sort_radix(t_stack **stack_a, t_stack **stack_b)
 {
+	print_stacks(stack_a, stack_b);
+	swap(stack_a);
 	print_stacks(stack_a, stack_b);
 	return (0);
 }

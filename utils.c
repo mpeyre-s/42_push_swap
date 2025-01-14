@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:56:46 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/14 13:08:51 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/14 13:29:20 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@ void	fill_stack(t_stack **stack, int value)
 			current = current->next;
 		current->next = new_node;
 	}
+}
+
+size_t	stack_size(t_stack *stack)
+{
+	size_t	i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
 
 void	print_stacks(t_stack **stack_a, t_stack **stack_b)

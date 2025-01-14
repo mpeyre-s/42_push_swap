@@ -8,8 +8,8 @@ OBJ_DIR := ./obj
 LIBFT   := ./.libft
 
 # Files
-SRCS    := main.c utils.c
-        #    $(SRC_DIR)/swap.c \
+SRCS    := main.c utils.c \
+           $(SRC_DIR)/swap.c
         #    $(SRC_DIR)/rotate.c \
         #    $(SRC_DIR)/rrotate.c \
         #    $(SRC_DIR)/push.c
