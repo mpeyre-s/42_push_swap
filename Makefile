@@ -12,9 +12,9 @@ LIBFT   := ./.libft
 # Files
 SRCS    := main.c utils.c \
            $(SRC_DIR)/swap.c \
-           $(SRC_DIR)/push.c
-        #    $(SRC_DIR)/rrotate.c \
-        #    $(SRC_DIR)/rotate.c
+           $(SRC_DIR)/push.c \
+		   $(SRC_DIR)/rotate.c
+        #    $(SRC_DIR)/rrotate.c
 
 OBJS    := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 NAME    := push_swap
