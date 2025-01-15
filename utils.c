@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:56:46 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/14 15:47:58 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/15 13:28:38 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	fill_stack(t_stack **stack, int value)
 	if (!new_node)
 		exit(EXIT_FAILURE);
 	new_node->nb = value;
+	new_node->order = 0;
+	new_node->seen = 0;
 	new_node->next = NULL;
 	if (*stack == NULL)
 		*stack = new_node;
@@ -53,18 +55,18 @@ void	print_stacks(t_stack **stack_a, t_stack **stack_b)
 
 	current_a = *stack_a;
 	current_b = *stack_b;
-	ft_printf("Stack A : ");
+	printf("Stack A : ");
 	while (current_a)
 	{
-		ft_printf("%d -> ", current_a->nb);
+		printf("%d [%u|%d] -> ", current_a->nb, (unsigned int)current_a->order, current_a->seen);
 		current_a = current_a->next;
 	}
-	ft_printf("NULL\n");
-	ft_printf("Stack B : ");
+	printf("NULL\n");
+	printf("Stack B : ");
 	while (current_b)
 	{
-		ft_printf("%d -> ", current_b->nb);
+		printf("%d [%u|%d] -> ", current_b->nb, (unsigned int)current_b->order, current_b->seen);
 		current_b = current_b->next;
 	}
-	ft_printf("NULL\n--------------------------------------------------\n");
+	printf("NULL\n--------------------------------------------------\n");
 }

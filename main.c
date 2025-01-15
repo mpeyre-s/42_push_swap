@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/15 10:19:57 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/15 13:27:39 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,38 @@ int	init_stack(t_stack **stack_a, size_t ac, char **av)
 	return (0);
 }
 
+int	get_order(t_stack **stack_a)
+{
+	t_stack	*current;
+	t_stack	*min;
+	size_t	order;
+
+	order = 0;
+	while (order < stack_size(*stack_a))
+	{
+		current = *stack_a;
+		min = NULL;
+		while (current)
+		{
+			if (!current->seen && (!min || current->nb < min->nb))
+			{
+				min = current;
+			}
+			current = current->next;
+		}
+		if (min)
+		{
+			min->seen = 1;
+			min->order = order++;
+		}
+	}
+	return (0);
+}
+
 int	sort_radix(t_stack **stack_a, t_stack **stack_b)
 {
 	print_stacks(stack_a, stack_b);
-	push_b(stack_a, stack_b);
-	push_b(stack_a, stack_b);
-	push_b(stack_a, stack_b);
-	print_stacks(stack_a, stack_b);
-	reverse_rotate_rotate(stack_a, stack_b);
+	get_order(stack_a);
 	print_stacks(stack_a, stack_b);
 	return (0);
 }

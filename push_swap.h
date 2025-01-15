@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/15 09:35:38 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/15 12:55:53 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdio.h>
 # include ".libft/libft.h"
 
 typedef struct s_stack
 {
 	int				nb;
+	size_t			order;
+	int				seen;
 	struct s_stack	*next;
 }				t_stack;
 
