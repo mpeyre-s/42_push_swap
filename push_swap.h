@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/15 08:51:51 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/15 09:35:38 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ int		push_b(t_stack **stack_a, t_stack **stack_b);
 int		rotate_a(t_stack **stack_a);
 int		rotate_b(t_stack **stack_b);
 int		rotate_rotate(t_stack **stack_a, t_stack **stack_b);
+
+// rrotate.c
+int		reverse_rotate_a(t_stack **stack_a);
+int		reverse_rotate_b(t_stack **stack_b);
+int		reverse_rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 #endif
