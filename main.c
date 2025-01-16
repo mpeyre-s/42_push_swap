@@ -6,18 +6,20 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/16 14:12:45 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/16 15:12:12 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	init_stack(t_stack **stack_a, size_t ac, char **av)
+int	init_stack(t_stack **stack_a, size_t ac, char **av, char type)
 {
 	size_t	i;
 	int		value;
 
-	i = 0;
+	i = -1;
+	if (type == 'i')
+		i = 0;
 	if (ac == 1)
 	{
 		ft_printf("Error");
@@ -28,7 +30,7 @@ int	init_stack(t_stack **stack_a, size_t ac, char **av)
 		value = ft_atoi(av[i]);
 		if (!value)
 		{
-			ft_printf("Error");
+			ft_printf("Error\n");
 			return (1);
 		}
 		fill_stack(stack_a, value);
@@ -62,49 +64,44 @@ int	get_order(t_stack **stack_a)
 	return (min->nb);
 }
 
-void	free_args(int ac, int i, char **args)
-{
-	if (ac == 2)
-	{
-		i = 0;
-		while (args[i])
-		{
-			free(args[i]);
-			i++;
-		}
-		free(args);
-	}
-}
-
 int	print_error(void)
 {
 	ft_printf("Error\n");
 	return (1);
 }
 
+char	**fill_split(char *type, char **av, int *ac)
+{
+	char	**args;
+	size_t	i;
+
+	i = 0;
+	args = ft_split(av[1], ' ');
+	while (args[i])
+		i++;
+	*type = 's';
+	*ac = (int)i;
+	return (args);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	char	**args;
-	int		i;
+	char	type;
 
 	stack_a = NULL;
 	stack_b = NULL;
+	type = 'i';
 	if (ac == 2)
 	{
-		args = ft_split(av[1], ' ');
-		if (!args)
+		av = fill_split(&type, av, &ac);
+		if (!av)
 			return (print_error());
-		i = 0;
-		while (args[i])
-			i++;
-		ac = i;
-		av = args;
 	}
-	if (init_stack(&stack_a, ac, av))
-		return (1);
+	if (init_stack(&stack_a, ac, av, type))
+		return (print_error());
+	print_stacks(&stack_a, &stack_b);
 	sort_radix(&stack_a, &stack_b, get_order(&stack_a));
-	free_args(ac, i, args);
 	return (0);
 }

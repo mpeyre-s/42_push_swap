@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/16 14:11:38 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/16 14:34:15 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 }				t_stack;
 
 // main.c
-int		init_stack(t_stack **stack_a, size_t ac, char **av);
+int		init_stack(t_stack **stack_a, size_t ac, char **av, char type);
 int		get_order(t_stack **stack_a);
 void	free_args(int ac, int i, char **args);
 int		print_error(void);

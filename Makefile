@@ -10,7 +10,7 @@ OBJ_DIR := ./obj
 LIBFT   := ./.libft
 
 # Files
-SRCS    := main.c utils.c \
+SRCS    := main.c utils.c radix.c \
            $(SRC_DIR)/swap.c \
            $(SRC_DIR)/push.c \
            $(SRC_DIR)/rotate.c \
