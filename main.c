@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/16 11:03:39 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/16 11:22:44 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,10 @@ int	check_b(t_stack **stack_a, t_stack **stack_b, int i, int size)
 {
 	while (size--)
 	{
-		if ((((*stack_a)->order >> i) & 1) == 0)
+		if ((((*stack_b)->order >> i) & 1) == 0)
 			rotate_b(stack_b);
-		else
+		else if ((((*stack_b)->order >> i) & 1) == 1)
 			push_a(stack_a, stack_b);
-		return (0);
 	}
 	return (0);
 }
@@ -127,7 +126,7 @@ int	main(int ac, char **av)
 	if (init_stack(&stack_a, ac, av))
 		return (1);
 	max = get_order(&stack_a);
-	print_stacks(&stack_a, &stack_b);
 	sort_radix(&stack_a, &stack_b, max);
+	print_stacks(&stack_a, &stack_b);
 	return (0);
 }
