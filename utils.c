@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:56:46 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/15 13:28:38 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/16 10:52:35 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,25 @@ void	print_stacks(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current_a;
 	t_stack	*current_b;
+	size_t i = 0;
 
 	current_a = *stack_a;
 	current_b = *stack_b;
 	printf("Stack A : ");
-	while (current_a)
+	while (i < stack_size(*stack_a))
 	{
-		printf("%d [%u|%d] -> ", current_a->nb, (unsigned int)current_a->order, current_a->seen);
+		printf("%d -> ", current_a->nb);
 		current_a = current_a->next;
+		i++;
 	}
+	i = 0;
 	printf("NULL\n");
 	printf("Stack B : ");
-	while (current_b)
+	while (i < stack_size(*stack_b))
 	{
-		printf("%d [%u|%d] -> ", current_b->nb, (unsigned int)current_b->order, current_b->seen);
+		printf("%d -> ", current_b->nb);
 		current_b = current_b->next;
+		i++;
 	}
 	printf("NULL\n--------------------------------------------------\n");
 }
