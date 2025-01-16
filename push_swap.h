@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/16 10:55:13 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/16 14:11:38 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,14 @@ typedef struct s_stack
 
 // main.c
 int		init_stack(t_stack **stack_a, size_t ac, char **av);
+int		get_order(t_stack **stack_a);
+void	free_args(int ac, int i, char **args);
+int		print_error(void);
+
+//radix.c
 void	sort_radix(t_stack **stack_a, t_stack **stack_b, int max);
 int		process_bits(t_stack **stack_a, t_stack **stack_b, int i, int size);
 int		check_b(t_stack **stack_a, t_stack **stack_b, int i, int size);
-int		get_order(t_stack **stack_a);
 
 // utils.c
 void	print_stacks(t_stack **stack_a, t_stack **stack_b);

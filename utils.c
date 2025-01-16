@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:56:46 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/16 10:52:35 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/16 14:12:37 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ void	print_stacks(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current_a;
 	t_stack	*current_b;
-	size_t i = 0;
+	size_t	i;
 
+	i = 0;
 	current_a = *stack_a;
 	current_b = *stack_b;
 	printf("Stack A : ");
