@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/16 11:22:44 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/16 14:05:21 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,18 +115,50 @@ void	sort_radix(t_stack **stack_a, t_stack **stack_b, int max)
 	}
 }
 
+void	free_args(int ac, int i, char **args)
+{
+	if (ac == 2)
+	{
+		i = 0;
+		while (args[i])
+		{
+			free(args[i]);
+			i++;
+		}
+		free(args);
+	}
+}
+
+int	print_error(void)
+{
+	ft_printf("Error\n");
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int 	max;
+	char	**args;
+	int		i;
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (ac == 2)
+	{
+		args = ft_split(av[1], ' ');
+		if (!args)
+			return (print_error());
+		i = 0;
+		while (args[i])
+			i++;
+		ac = i;
+		av = args;
+	}
 	if (init_stack(&stack_a, ac, av))
 		return (1);
-	max = get_order(&stack_a);
-	sort_radix(&stack_a, &stack_b, max);
-	print_stacks(&stack_a, &stack_b);
+	sort_radix(&stack_a, &stack_b, get_order(&stack_a));
+	free_args(ac, i, args);
 	return (0);
 }
+
