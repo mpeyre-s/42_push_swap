@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/16 15:19:27 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/17 16:03:45 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,12 @@ int	init_stack(t_stack **stack_a, size_t ac, char **av, char type)
 	if (type == 'i')
 		i = 0;
 	if (ac == 1)
-	{
-		ft_printf("Error");
 		return (1);
-	}
 	while (++i < (size_t)ac)
 	{
 		value = ft_atoi(av[i]);
 		if (!value)
-		{
-			ft_printf("Error\n");
 			return (1);
-		}
 		fill_stack(stack_a, value);
 	}
 	return (0);
