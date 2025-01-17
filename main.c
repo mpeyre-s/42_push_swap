@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/17 17:19:10 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/17 17:24:20 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	type = 'i';
+	if (ac == 1)
+		return (0);
 	if (ac == 2)
 	{
 		av = fill_split(&type, av, &ac);
