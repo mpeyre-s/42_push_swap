@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/17 17:24:20 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/17 17:38:35 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	get_order(t_stack **stack_a)
 
 int	print_error(void)
 {
-	ft_printf("Error\n");
+	ft_putendl_fd("Error", 2);
 	return (1);
 }
 
