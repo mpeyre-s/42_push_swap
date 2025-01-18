@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:16:57 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/18 17:52:26 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/18 19:38:28 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sorting(t_stack **stack_a, t_stack **stack_b, int max)
 	else if (size == 3)
 		sorting_three(stack_a, max);
 	else if (size > 3 && size <= 5)
-		sorting_five(stack_a, stack_b, size, max);
+		sorting_five(stack_a, stack_b, max);
 	else
 		sort_radix(stack_a, stack_b, max);
 }
@@ -37,25 +37,23 @@ void	sorting_three(t_stack **stack_a, int max)
 		swap_a(stack_a);
 }
 
-void	sorting_five(t_stack **stack_a, t_stack **stack_b, int size, int max)
+void	sorting_five(t_stack **stack_a, t_stack **stack_b, int max)
 {
-	while (size > 3)
+	int	min;
+	int	pushed;
+
+	pushed = 0;
+	while (pushed < 2)
 	{
-		if ((*stack_a)->nb == max || (*stack_a)->nb == max - 1)
+		min = find_min(*stack_a);
+		while ((*stack_a)->nb != min)
 			rotate_a(stack_a);
-		else
-		{
-			push_b(stack_a, stack_b);
-			size--;
-		}
+		push_b(stack_a, stack_b);
+		pushed++;
 	}
-	sorting_three(stack_a, max - 2);
+	sorting_three(stack_a, max);
 	while (*stack_b)
-	{
 		push_a(stack_a, stack_b);
-		if ((*stack_a)->nb > (*stack_a)->next->nb)
-			swap_a(stack_a);
-	}
 }
 
 int	is_sorted(t_stack **stack_a)
@@ -70,4 +68,18 @@ int	is_sorted(t_stack **stack_a)
 		current = current->next;
 	}
 	return (1);
+}
+
+int	find_min(t_stack *stack)
+{
+	int	min;
+
+	min = stack->nb;
+	while (stack)
+	{
+		if (stack->nb < min)
+			min = stack->nb;
+		stack = stack->next;
+	}
+	return (min);
 }
