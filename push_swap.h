@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/18 16:31:38 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/18 17:52:29 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		print_error(void);
 void	sorting(t_stack **stack_a, t_stack **stack_b, int max);
 void	sorting_three(t_stack **stack_a, int max);
 void	sorting_five(t_stack **stack_a, t_stack **stack_b, int size, int max);
+int		is_sorted(t_stack **stack_a);
 
 // radix.c
 void	sort_radix(t_stack **stack_a, t_stack **stack_b, int max);

@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/18 16:22:35 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/18 17:52:20 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ int	main(int ac, char **av)
 		exit(print_error());
 	if (check_double(&stack_a))
 		exit(print_error());
-	//print_stacks(&stack_a, &stack_b);
+	if (is_sorted(&stack_a))
+		return (0);
 	sorting(&stack_a, &stack_b, get_order(&stack_a));
-	//print_stacks(&stack_a, &stack_b);
 	return (0);
 }

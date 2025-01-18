@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:16:57 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/18 16:31:43 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/18 17:52:26 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ void	sorting(t_stack **stack_a, t_stack **stack_b, int max)
 
 	size = stack_size(*stack_a);
 	if (size == 2)
-	{
-		if ((*stack_a)->nb < (*stack_a)->next->nb)
-			return ;
 		rotate_a(stack_a);
-	}
 	else if (size == 3)
 		sorting_three(stack_a, max);
 	else if (size > 3 && size <= 5)
@@ -60,4 +56,18 @@ void	sorting_five(t_stack **stack_a, t_stack **stack_b, int size, int max)
 		if ((*stack_a)->nb > (*stack_a)->next->nb)
 			swap_a(stack_a);
 	}
+}
+
+int	is_sorted(t_stack **stack_a)
+{
+	t_stack	*current;
+
+	current = *stack_a;
+	while (current && current->next)
+	{
+		if (current->nb > current->next->nb)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }
