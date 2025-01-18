@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/17 16:56:05 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/18 16:11:51 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		check_b(t_stack **stack_a, t_stack **stack_b, int i, int size);
 void	print_stacks(t_stack **stack_a, t_stack **stack_b);
 size_t	stack_size(t_stack *stack);
 void	fill_stack(t_stack **stack, int value);
-int		empty_b(t_stack **stack_a, t_stack **stack_b);
+int		check_double(t_stack **stack_a);
 
 // swap.c
 int		swap_a(t_stack **stack);

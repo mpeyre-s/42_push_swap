@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/17 17:52:44 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/18 16:22:35 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	get_order(t_stack **stack_a)
 int	print_error(void)
 {
 	ft_putendl_fd("Error", 2);
-	return (1);
+	return (EXIT_FAILURE);
 }
 
 char	**fill_split(char *type, char **av, int *ac)
@@ -93,10 +93,12 @@ int	main(int ac, char **av)
 	{
 		av = fill_split(&type, av, &ac);
 		if (!av)
-			return (print_error());
+			exit(print_error());
 	}
 	if (init_stack(&stack_a, ac, av, type))
-		return (print_error());
+		exit(print_error());
+	if (check_double(&stack_a))
+		exit(print_error());
 	//print_stacks(&stack_a, &stack_b);
 	sorting(&stack_a, &stack_b, get_order(&stack_a));
 	//print_stacks(&stack_a, &stack_b);

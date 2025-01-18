@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:56:46 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/16 14:12:37 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/18 16:17:45 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,26 @@ size_t	stack_size(t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+int	check_double(t_stack **stack_a)
+{
+	t_stack	*current;
+	t_stack	*checker;
+
+	current = *stack_a;
+	while (current)
+	{
+		checker = current->next;
+		while (checker)
+		{
+			if (current->nb == checker->nb)
+				return (1);
+			checker = checker->next;
+		}
+		current = current->next;
+	}
+	return (0);
 }
 
 void	print_stacks(t_stack **stack_a, t_stack **stack_b)
