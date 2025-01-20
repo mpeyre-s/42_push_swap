@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/18 19:34:26 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/20 09:24:36 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	init_stack(t_stack **stack_a, size_t ac, char **av, char type)
 		return (1);
 	while (++i < (size_t)ac)
 	{
-		value = ft_atoi(av[i]);
+		value = ft_atoi_overflow(av[i]);
 		if (av[i][0] != '0' && !value)
 			return (1);
 		fill_stack(stack_a, value);
@@ -94,6 +94,8 @@ int	main(int ac, char **av)
 		av = fill_split(&type, av, &ac);
 		if (!av)
 			exit(print_error());
+		if (ac == 1)
+			return (0);
 	}
 	if (init_stack(&stack_a, ac, av, type))
 		exit(print_error());
@@ -102,6 +104,5 @@ int	main(int ac, char **av)
 	if (is_sorted(&stack_a))
 		return (0);
 	sorting(&stack_a, &stack_b, get_order(&stack_a));
-	print_stacks(&stack_a, &stack_b);
 	return (0);
 }

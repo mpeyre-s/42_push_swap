@@ -6,7 +6,7 @@
 /*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/18 19:37:39 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/20 09:56:43 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int		print_error(void);
 void	sorting(t_stack **stack_a, t_stack **stack_b, int max);
 void	sorting_three(t_stack **stack_a, int max);
 void	sorting_five(t_stack **stack_a, t_stack **stack_b, int max);
+int		is_decrease(t_stack **a, t_stack **b);
 int		is_sorted(t_stack **stack_a);
-int		find_min(t_stack *stack);
 
 // radix.c
 void	sort_radix(t_stack **stack_a, t_stack **stack_b, int max);
@@ -50,6 +50,7 @@ void	print_stacks(t_stack **stack_a, t_stack **stack_b);
 size_t	stack_size(t_stack *stack);
 void	fill_stack(t_stack **stack, int value);
 int		check_double(t_stack **stack_a);
+int		find_min(t_stack *stack);
 
 // swap.c
 int		swap_a(t_stack **stack);
@@ -69,4 +70,7 @@ int		rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 int		reverse_rotate_a(t_stack **stack_a);
 int		reverse_rotate_b(t_stack **stack_b);
 int		reverse_rotate_rotate(t_stack **stack_a, t_stack **stack_b);
+
+// ft_atoi_overflow.c
+int		ft_atoi_overflow(char *str);
 #endif
