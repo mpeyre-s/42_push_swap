@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mpeyre-s <mpeyre-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:56:46 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/20 09:43:26 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/20 14:31:05 by mpeyre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,32 +80,4 @@ int	find_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return (min);
-}
-
-void	print_stacks(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*current_a;
-	t_stack	*current_b;
-	size_t	i;
-
-	i = 0;
-	current_a = *stack_a;
-	current_b = *stack_b;
-	printf("Stack A : ");
-	while (i < stack_size(*stack_a))
-	{
-		printf("%d -> ", current_a->nb);
-		current_a = current_a->next;
-		i++;
-	}
-	i = 0;
-	printf("NULL\n");
-	printf("Stack B : ");
-	while (i < stack_size(*stack_b))
-	{
-		printf("%d -> ", current_b->nb);
-		current_b = current_b->next;
-		i++;
-	}
-	printf("NULL\n--------------------------------------------------\n");
 }

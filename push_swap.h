@@ -6,7 +6,7 @@
 /*   By: mpeyre-s <mpeyre-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/20 11:43:24 by mpeyre-s         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:30:48 by mpeyre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int		process_bits(t_stack **stack_a, t_stack **stack_b, int i, int size);
 int		check_b(t_stack **stack_a, t_stack **stack_b, int i, int size);
 
 // utils.c
-void	print_stacks(t_stack **stack_a, t_stack **stack_b);
 size_t	stack_size(t_stack *stack);
 void	fill_stack(t_stack **stack, int value);
 int		check_double(t_stack **stack_a);

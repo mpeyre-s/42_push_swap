@@ -6,7 +6,7 @@
 /*   By: mpeyre-s <mpeyre-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/20 12:26:29 by mpeyre-s         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:29:22 by mpeyre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,10 @@ int	main(int ac, char **av)
 			exit(free_args_stacks(ac, av, &stack_a, &stack_b));
 		if (ac == 1)
 			return (free_args(ac, av));
-		free_args(ac, av);
 	}
 	if (init_stack(&stack_a, ac, av, type))
 		exit(print_error(&stack_a, &stack_b));
+	free_args(ac, av);
 	if (check_double(&stack_a))
 		exit(print_error(&stack_a, &stack_b));
 	if (is_sorted(&stack_a))

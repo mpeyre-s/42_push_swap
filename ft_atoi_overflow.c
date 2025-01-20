@@ -6,7 +6,7 @@
 /*   By: mpeyre-s <mpeyre-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 09:18:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/20 12:33:06 by mpeyre-s         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:16:36 by mpeyre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atoi_overflow(char *str)
 		i++;
 	}
 	result = result * sign;
-	if (result > INT_MAX || result < -2147483648)
+	if (result > 2147483647 || result < -2147483648)
 		return (0);
 	return (result);
 }
