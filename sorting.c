@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mpeyre-s <mpeyre-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:16:57 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/20 09:56:24 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/20 11:23:37 by mpeyre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	sorting(t_stack **stack_a, t_stack **stack_b, int max)
 		sorting_five(stack_a, stack_b, max);
 	else
 		sort_radix(stack_a, stack_b, max);
+	free_stacks(stack_a, stack_b);
 }
 
 void	sorting_three(t_stack **stack_a, int max)

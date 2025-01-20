@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
+/*   By: mpeyre-s <mpeyre-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:10:56 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/20 09:56:43 by mathispeyre      ###   ########.fr       */
+/*   Updated: 2025/01/20 11:43:24 by mpeyre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ typedef struct s_stack
 // main.c
 int		init_stack(t_stack **stack_a, size_t ac, char **av, char type);
 int		get_order(t_stack **stack_a);
-void	free_args(int ac, int i, char **args);
-int		print_error(void);
+int		print_error(t_stack **stack_a, t_stack **stack_b);
 
 // sorting.c
 void	sorting(t_stack **stack_a, t_stack **stack_b, int max);
@@ -73,4 +72,10 @@ int		reverse_rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 
 // ft_atoi_overflow.c
 int		ft_atoi_overflow(char *str);
+
+// iwanttobreakfree.c
+int		free_args_stacks(int ac, char **args, t_stack **a, t_stack **b);
+int		free_args(int ac, char **args);
+void	free_stack(t_stack **stack);
+void	free_stacks(t_stack **stack_a, t_stack **stack_b);
 #endif
