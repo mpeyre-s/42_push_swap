@@ -6,7 +6,7 @@
 /*   By: mpeyre-s <mpeyre-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/20 14:29:22 by mpeyre-s         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:42:58 by mpeyre-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,10 @@ char	**fill_split(char *type, char **av, int *ac)
 
 int	main(int ac, char **av)
 {
-	t_stack		*stack_a;
-	t_stack		*stack_b;
-	static char	type = 'i';
+	static t_stack		*stack_a = NULL;
+	static t_stack		*stack_b = NULL;
+	static char			type = 'i';
 
-	stack_a = NULL;
-	stack_b = NULL;
 	if (ac == 1)
 		return (0);
 	if (ac == 2)
@@ -99,7 +97,8 @@ int	main(int ac, char **av)
 	}
 	if (init_stack(&stack_a, ac, av, type))
 		exit(print_error(&stack_a, &stack_b));
-	free_args(ac, av);
+	if (type == 's')
+		free_args(ac, av);
 	if (check_double(&stack_a))
 		exit(print_error(&stack_a, &stack_b));
 	if (is_sorted(&stack_a))
