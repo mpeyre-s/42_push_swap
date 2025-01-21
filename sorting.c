@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeyre-s <mpeyre-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:16:57 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/20 14:31:25 by mpeyre-s         ###   ########.fr       */
+/*   Updated: 2025/01/21 12:00:06 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,25 @@ void	sorting_five(t_stack **stack_a, t_stack **stack_b, int max)
 
 int	is_decrease(t_stack **a, t_stack **b)
 {
-	if ((*a)->nb > (*a)->next->nb
-		&& (*a)->next->nb > (*a)->next->next->nb
-		&& (*a)->next->next->nb > (*a)->next->next->next->nb
-		&& (*a)->next->next->next->nb > (*a)->next->next->next->next->nb)
+	if ((*a) && (*a)->next && (*a)->next->next
+		&& (*a)->next->next->next && (*a)->next->next->next->next)
 	{
-		push_b(a, b);
-		push_b(a, b);
-		rotate_a(a);
-		swap_a(a);
-		swap_b(b);
-		push_a(a, b);
-		push_a(a, b);
-		rotate_a(a);
-		rotate_a(a);
-		return (1);
+		if ((*a)->nb > (*a)->next->nb
+			&& (*a)->next->nb > (*a)->next->next->nb
+			&& (*a)->next->next->nb > (*a)->next->next->next->nb
+			&& (*a)->next->next->next->nb > (*a)->next->next->next->next->nb)
+		{
+			push_b(a, b);
+			push_b(a, b);
+			rotate_a(a);
+			swap_a(a);
+			swap_b(b);
+			push_a(a, b);
+			push_a(a, b);
+			rotate_a(a);
+			rotate_a(a);
+			return (1);
+		}
 	}
 	return (0);
 }
