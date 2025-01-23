@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpeyre-s <mpeyre-s@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathispeyre <mathispeyre@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 14:29:06 by mathispeyre       #+#    #+#             */
-/*   Updated: 2025/01/20 14:42:58 by mpeyre-s         ###   ########.fr       */
+/*   Updated: 2025/01/23 15:22:50 by mathispeyre      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int	main(int ac, char **av)
 	if (check_double(&stack_a))
 		exit(print_error(&stack_a, &stack_b));
 	if (is_sorted(&stack_a))
-		return (0);
+		return (free_stack(&stack_a), 0);
 	sorting(&stack_a, &stack_b, get_order(&stack_a));
 	return (0);
 }
